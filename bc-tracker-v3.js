@@ -256,7 +256,7 @@
       navigator.sendBeacon ? navigator.sendBeacon(EP,b) : fetch(EP,{method:'POST',body:b,headers:{'Content-Type':'application/json'},keepalive:true});
     } catch(e){}
   }
-  setInterval(flush, 30000);
+// setInterval(flush,30000);
 
   // ── SCROLL ───────────────────────────────────────────────────────────────────
   var _sv={y:0,t:0,v:0};
