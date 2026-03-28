@@ -348,8 +348,13 @@ export default function Dashboard() {
             {sites.map(s=><option key={s.site} value={s.site}>{s.site} ({s.n})</option>)}
           </select>
           <select value={days} onChange={e=>setDays(Number(e.target.value))} style={{ padding:'4px 8px', background:C.s2, border:`1px solid ${C.b1}`, borderRadius:5, color:C.text, fontSize:11 }}>
-            <option value={7}>7j</option><option value={14}>14j</option>
-            <option value={30}>30j</option><option value={90}>90j</option>
+            <option value={7}>7 jours</option>
+            <option value={14}>14 jours</option>
+            <option value={30}>30 jours</option>
+            <option value={60}>60 jours</option>
+            <option value={90}>90 jours</option>
+            <option value={180}>6 mois</option>
+            <option value={365}>12 mois</option>
           </select>
           <button onClick={loadMain} style={{ padding:'4px 10px', background:C.orange, border:'none', borderRadius:5, color:'#fff', fontSize:11, fontWeight:700 }}>↻</button>
         </div>
