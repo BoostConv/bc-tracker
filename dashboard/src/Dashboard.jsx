@@ -59,7 +59,7 @@ const Q = {
     ARRAY JOIN JSONExtractKeys(blocks_json) AS b
     LEFT JOIN bc_tracker.block_labels bl ON bl.site=s.site AND bl.page=s.page AND bl.bloc_id=b
     WHERE s.site='${site}' AND s.page='${page}' AND date>=today()-${days}
-      AND JSONExtractInt(s.blocks_json,b,'seen')=1
+      AND (JSONExtractInt(s.blocks_json,b,'seen')=1 OR JSONExtractInt(s.blocks_json,b,'clicks')>0 OR JSONExtractInt(s.blocks_json,b,'ms')>0 OR JSONExtractInt(s.blocks_json,b,'cta')>0 OR JSONExtractInt(s.blocks_json,b,'returns')>0)
     GROUP BY bloc, bloc_raw ORDER BY cvr_seen DESC`,
   blocksNotSeen: (site, page, days) => `
     SELECT coalesce(bl.label, b) AS bloc,
